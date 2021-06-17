@@ -1,10 +1,16 @@
-import logo from './logo.svg';
+import React from 'react';
+import GlobalStyle from './components/globleStyle';
+import Homepage from './pages/Hompage';
 
 function App() {
   return (
+
     <div className="App">
-      <h2>Jounry begin loser</h2>
+      <GlobalStyle />
+      <Homepage />
+
     </div>
+
   );
 }
 
