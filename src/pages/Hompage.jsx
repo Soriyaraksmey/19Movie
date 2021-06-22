@@ -1,9 +1,15 @@
 import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+//redux
 import { useDispatch, useSelector } from 'react-redux'
+//component
+import { LoadMovies } from '../redux/actions/laodmovieaction';
+import MovieDetails from '../components/moviedetails';
 import Movie from '../components/movie';
-import { LoadMovies } from '../redux/actions/laodmovieaction'
+//style
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+
 
 const Homepage = () => {
 
@@ -12,15 +18,21 @@ const Homepage = () => {
         dispact(LoadMovies())
     }, [dispact])
 
+    //get data from redux
     const { LastestMovie, Trandings, Tvshows } = useSelector(state => state.Movies);
+
+    //check if url changed
+    const location = useLocation();
+    const pathID = location.pathname.split("/")[2]; //get movie id from path
 
     return (
         <MovieList>
+            {pathID && <MovieDetails />}
             <h2>Trending</h2>
             <MovieStyled>
                 {
                     Trandings.map((m) => (
-                        <Movie key={m.id} img={m.poster_path} title={m.original_title} title1={m.original_name} />
+                        <Movie key={m.id} img={m.poster_path} title={m.original_title} title1={m.original_name} id={m.id} />
                     ))
                 }
 
@@ -29,7 +41,7 @@ const Homepage = () => {
             <MovieStyled>
                 {
                     LastestMovie.map((m) => (
-                        <Movie key={m.id} img={m.poster_path} title={m.original_title} />
+                        <Movie key={m.id} img={m.poster_path} title={m.original_title} id={m.id} />
                     ))
                 }
             </MovieStyled>
@@ -37,7 +49,7 @@ const Homepage = () => {
             <MovieStyled>
                 {
                     Tvshows.map((m) => (
-                        <Movie key={m.id} img={m.poster_path} title={m.original_name} />
+                        <Movie key={m.id} img={m.poster_path} title={m.original_name} id={m.id} />
                     ))
                 }
             </MovieStyled>

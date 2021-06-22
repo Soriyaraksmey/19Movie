@@ -1,19 +1,32 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { GetmovieDetails } from '../redux/actions/moviedetailsaction';
 
-const Movie = ({ img, title, title1 }) => {
+const Movie = ({ img, title, title1, id }) => {
 
     //for good quality img
     //const poster = "https://image.tmdb.org/t/p/original" + img;
     //lower quality
     const poster = "https://image.tmdb.org/t/p/w342" + img;
 
+    //get game details
+    const dispatch = useDispatch();
+    const Loadgamedetails = () => {
+        console.log(id);
+        document.body.style.overflow = 'hidden';
+        dispatch(GetmovieDetails(id));
+
+    }
 
     return (
-        <GameStyled>
-            <img src={poster} alt="title" />
-            <h3>{title || title1}</h3>
+        <GameStyled onClick={Loadgamedetails}>
+            <Link to={`/movie/${id}`}>
+                <img src={poster} alt="title" />
+                <h3>{title || title1}</h3>
+            </Link>
         </GameStyled>
     );
 }
@@ -26,6 +39,7 @@ const GameStyled = styled(motion.div)`
   background: #1c1b29;
   cursor: pointer;
   transition: transform .3s;
+  
   &:hover{
       transform: scale(1.1);
       box-shadow: 0 0 30px rgba(0,0,0,0.5);
@@ -40,6 +54,7 @@ h3{
     color: white;
     padding: 1rem 0rem;
     font-size: 0.9rem;
+    text-decoration: none;
 }
 
 `
