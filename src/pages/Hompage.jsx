@@ -8,7 +8,7 @@ import MovieDetails from '../components/moviedetails';
 import Movie from '../components/movie';
 //style
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
+import { motion, AnimateSharedLayout } from 'framer-motion';
 
 
 const Homepage = () => {
@@ -27,39 +27,41 @@ const Homepage = () => {
 
     return (
         <MovieList>
-            {pathID && <MovieDetails />}
-            <h2>Trending</h2>
-            <MovieStyled>
-                {
-                    Trandings.map((m) => (
-                        <Movie key={m.id} img={m.poster_path} title={m.original_title} title1={m.original_name} id={m.id} />
-                    ))
-                }
+            <AnimateSharedLayout>
+                {pathID && <MovieDetails />}
+                <h2>Trending</h2>
+                <MovieStyled>
+                    {
+                        Trandings.map((m) => (
+                            <Movie key={m.id} img={m.poster_path} title={m.original_title} title1={m.original_name} id={m.id} />
+                        ))
+                    }
 
-            </MovieStyled>
-            <h2>Lastest Movie</h2>
-            <MovieStyled>
-                {
-                    LastestMovie.map((m) => (
-                        <Movie key={m.id} img={m.poster_path} title={m.original_title} id={m.id} />
-                    ))
-                }
-            </MovieStyled>
-            <h2>Lastest Tv shows</h2>
-            <MovieStyled>
-                {
-                    Tvshows.map((m) => (
-                        <Movie key={m.id} img={m.poster_path} title={m.original_name} id={m.id} />
-                    ))
-                }
-            </MovieStyled>
+                </MovieStyled>
+                <h2>Lastest Movie</h2>
+                <MovieStyled>
+                    {
+                        LastestMovie.map((m) => (
+                            <Movie key={m.id} img={m.poster_path} title={m.original_title} id={m.id} />
+                        ))
+                    }
+                </MovieStyled>
+                <h2>Lastest Tv shows</h2>
+                <MovieStyled>
+                    {
+                        Tvshows.map((m) => (
+                            <Movie key={m.id} img={m.poster_path} title={m.original_name} id={m.id} />
+                        ))
+                    }
+                </MovieStyled>
+            </AnimateSharedLayout>
         </MovieList>
 
 
     );
 }
 const MovieList = styled(motion.div)`
-padding: 0rem 3rem;
+padding: 2rem 3rem;
 h2{
     padding: 3rem 0rem;
 }

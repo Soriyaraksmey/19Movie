@@ -15,15 +15,17 @@ const Movie = ({ img, title, title1, id }) => {
     //get game details
     const dispatch = useDispatch();
     const Loadgamedetails = () => {
-        console.log(id);
         document.body.style.overflow = 'hidden';
+        dispatch({ type: "CLEAR_STATE" });
         dispatch(GetmovieDetails(id));
 
     }
 
+
+
     return (
-        <GameStyled onClick={Loadgamedetails}>
-            <Link to={`/movie/${id}`}>
+        <GameStyled onClick={Loadgamedetails} >
+            <Link to={`/movie/${id}`} style={{ textDecoration: 'none' }}>
                 <img src={poster} alt="title" />
                 <h3>{title || title1}</h3>
             </Link>

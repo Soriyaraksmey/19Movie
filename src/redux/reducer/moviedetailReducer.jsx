@@ -1,8 +1,9 @@
 const init = {
     details: {},
-    video: {},
+    video: [],
     img: {},
-    similar: {}
+    similar: {},
+    isLoading: true,
 }
 
 const MovieDetailReducer = (state = init, action) => {
@@ -13,8 +14,18 @@ const MovieDetailReducer = (state = init, action) => {
                 details: action.payload.details,
                 video: action.payload.video,
                 img: action.payload.img,
-                similar: action.payload.similar
-            })
+                similar: action.payload.similar,
+                isLoading: false,
+            });
+        case "CLEAR_STATE":
+            return ({
+                ...state,
+                details: {},
+                video: {},
+                img: {},
+                similar: {},
+                isLoading: true,
+            });
         default:
             return ({ ...state })
     }
