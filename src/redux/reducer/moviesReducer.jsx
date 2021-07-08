@@ -2,6 +2,7 @@ const initstate = {
     LastestMovie: [],
     Trandings: [],
     Tvshows: [],
+    Upcomming: []
 }
 
 const MoviesReducer = (state = initstate, action) => {
@@ -12,6 +13,7 @@ const MoviesReducer = (state = initstate, action) => {
                 LastestMovie: action.payload.LastestMovie,
                 Trandings: action.payload.Trandings,
                 Tvshows: action.payload.Tvshows,
+                Upcomming: action.payload.Upcomming,
             }
         default:
             return {

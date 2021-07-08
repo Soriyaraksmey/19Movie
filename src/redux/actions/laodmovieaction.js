@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { LastestMovieURL, TrandingMovieUrl, TvShowUrl } from '../../api';
+import { LastestMovieURL, TrandingMovieUrl, TvShowUrl, UpcommingMovieUrl } from '../../api';
 
 
 export const LoadMovies = () => async (dispatch) => {
@@ -20,6 +20,11 @@ export const LoadMovies = () => async (dispatch) => {
             api_key: process.env.REACT_APP_API_KEY,
         },
     });
+    const respone3 = await axios.get(UpcommingMovieUrl(), {
+        params: {
+            api_key: process.env.REACT_APP_API_KEY,
+        },
+    });
 
     dispatch({
         type: 'FETCH_DATA',
@@ -27,6 +32,7 @@ export const LoadMovies = () => async (dispatch) => {
             LastestMovie: respone.data.results,
             Trandings: respone1.data.results,
             Tvshows: respone2.data.results,
+            Upcomming: respone3.data.results,
         }
     })
 

@@ -61,7 +61,7 @@ const Homepage = () => {
     );
 }
 const MovieList = styled(motion.div)`
-padding: 2rem 3rem;
+padding: 6rem 3rem;
 h2{
     padding: 3rem 0rem;
 }

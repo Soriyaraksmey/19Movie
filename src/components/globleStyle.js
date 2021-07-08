@@ -20,6 +20,21 @@ body{
     background: #151320;
     color: white;
     scroll-behavior: smooth;
+    
+font-family: 'Poppins', sans-serif;
+}
+h1{
+    font-family: 'Metal Mania', cursive;
+    font-size: 3rem;
+    letter-spacing: 1rem;
+    font-weight: bold;
+}
+h2{
+    font-family: 'Metal Mania', cursive;
+    font-size: 2rem;
+    font-weight: lighter;
+    letter-spacing: 0.5rem;
+   
 }
 h3{
     color: white;

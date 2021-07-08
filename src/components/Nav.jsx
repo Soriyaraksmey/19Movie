@@ -1,20 +1,37 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import { useDispatch } from 'react-redux';
+import { SerachMovies } from '../redux/actions/searchmovieaction';
 
 const Navbar = () => {
+
+    const [text, Settext] = useState('');
+
+    const dispatch = useDispatch();
+    const history = useHistory();
+    const searchMovie = (e) => {
+        e.preventDefault();
+        if (text) {
+            dispatch(SerachMovies(text));
+            history.push(`/search/${text}`);
+        } else {
+            alert("pleas enter movie name to search guys");
+        }
+    }
+
     return (
         <Navstyled>
             <Container>
                 <h1>えいが</h1>
                 <ul>
                     <Link to="/" style={{ textDecoration: 'none' }}><li>Home</li></Link>
-                    <Link to="/upcomming" style={{ textDecoration: 'none' }}><li>Up Comming</li></Link>
-                    <Link to="about" style={{ textDecoration: 'none' }}><li>About</li></Link>
+                    <Link to="/upcomming" style={{ textDecoration: 'none' }}><li>Fixing</li></Link>
+                    <Link to="/about" style={{ textDecoration: 'none' }}><li>About</li></Link>
                 </ul>
-                <form>
-                    <input type="text" />
+                <form onSubmit={searchMovie}>
+                    <input type="text" value={text} onChange={event => Settext(event.target.value)} />
                     <button type="submit">search</button>
                 </form>
             </Container>

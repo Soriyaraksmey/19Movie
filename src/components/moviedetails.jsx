@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { useHistory, useLocation } from 'react-router';
+import { useHistory } from 'react-router';
 //redux
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
@@ -24,7 +24,7 @@ const MovieDetails = () => {
         const element = e.target;
         if (element.classList.contains('shadow')) {
             document.body.style.overflow = 'auto';
-            history.push("/");
+            history.goBack();
             dispatch({ type: "CLEAR_STATE" });
         }
     }
@@ -100,7 +100,7 @@ const MovieDetails = () => {
                     </OverviewStyle>
                     <Imgstyle>
                         {img.backdrops.slice(0, 3).map(backdrop => (
-                            <img src={`https://image.tmdb.org/t/p/original${backdrop.file_path}`} alt={backdrop.file_path} />
+                            <img key={`${backdrop.file_path}`} src={`https://image.tmdb.org/t/p/original${backdrop.file_path}`} alt={backdrop.file_path} />
                         ))}
                     </Imgstyle>
                     {similar.results.length > 0 ? <Similarstyle>
@@ -163,6 +163,8 @@ const Cardmain = styled(motion.div)`
   z-index: 7;
   h1{
       color: white;
+  }p{
+      color: #b3b3b3;
   }
   `
 const VideoTriler = styled(motion.div)`

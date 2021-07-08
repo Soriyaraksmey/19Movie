@@ -1,8 +1,12 @@
 import React from 'react';
-import GlobalStyle from './components/globleStyle';
+import { Route, Redirect, Switch } from 'react-router-dom'
+//componets
+import GlobalStyle from './components/globleStyle'; // style
 import Homepage from './pages/Hompage';
 import Navbar from './components/Nav';
-import { Route, Redirect } from 'react-router-dom'
+import Upcomming from './pages/Upcomming';
+import Search from './components/search';
+import About from './pages/About';
 
 function App() {
   return (
@@ -10,10 +14,13 @@ function App() {
     <div className="App">
       <GlobalStyle />
       <Navbar />
-      <Route path={["/movie/:id", "/"]}>
-        <Homepage />
-      </Route>
-      <Redirect to="/"></Redirect>
+      <Switch>
+        <Route exact path="/search/:moviename" ><Search /></Route>
+        <Route exact path="/upcomming" ><Upcomming /></Route>
+        <Route exact path="/about"><About /></Route>
+        <Route path={["/movie/:id", "/"]}> <Homepage /></Route>
+        <Redirect to="/"></Redirect>
+      </Switch>
     </div>
 
   );

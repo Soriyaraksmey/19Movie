@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { ScaledAnim } from '../components/Animatio'
 import { GetmovieDetails } from '../redux/actions/moviedetailsaction';
 
 const Movie = ({ img, title, title1, id }) => {
@@ -24,7 +25,7 @@ const Movie = ({ img, title, title1, id }) => {
 
 
     return (
-        <GameStyled onClick={Loadgamedetails} >
+        <GameStyled variants={ScaledAnim} initial="hidden" animate="show" onClick={Loadgamedetails} >
             <Link to={`/movie/${id}`} style={{ textDecoration: 'none' }}>
                 <img src={poster} alt="title" />
                 <h3>{title || title1}</h3>

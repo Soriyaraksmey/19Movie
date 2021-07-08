@@ -11,3 +11,9 @@ export const GetDetailUrl = (movie_id) => `${baseurl}movie/${movie_id}`;
 export const GetVideoUrl = (movie_id) => `${baseurl}movie/${movie_id}/videos`;
 export const GetImgUrl = (movie_id) => `${baseurl}movie/${movie_id}/images`;
 export const GetsimilarMovieUrl = (movie_id) => `${baseurl}movie/${movie_id}/similar`;
+//get upcomming movie
+export const UpcommingMovieUrl = () => `${baseurl}movie/upcoming`;
+//search
+
+export const SearchMovieUrl = (movie_name) => `
+${baseurl}search/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${movie_name}&page=1&include_adult=true`;
