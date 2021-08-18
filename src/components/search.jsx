@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 import Movie from '../components/movie';
 
+
 const Search = () => {
 
     const { Search } = useSelector(state => state.Search)

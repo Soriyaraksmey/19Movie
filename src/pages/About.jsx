@@ -19,7 +19,7 @@ const AboutStyledv = styled(motion.div)`
 padding: 6rem 3rem;
 width: 50%;
 margin: auto;
-min-height: 100vh;
+min-height: 90vh;
 display: flex;
 align-items: center;
 justify-content: center;

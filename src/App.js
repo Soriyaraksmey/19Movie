@@ -15,7 +15,6 @@ function App() {
       <GlobalStyle />
       <Navbar />
       <Switch>
-        <Route exact path="/search/:moviename" ><Search /></Route>
         <Route exact path="/upcomming" ><Upcomming /></Route>
         <Route exact path="/about"><About /></Route>
         <Route path={["/movie/:id", "/"]}> <Homepage /></Route>

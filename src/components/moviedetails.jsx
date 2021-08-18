@@ -15,7 +15,6 @@ import Loader from './Loader';
 const MovieDetails = () => {
 
     const history = useHistory();
-
     //get data from state
     const { details, video, img, similar, isLoading } = useSelector(state => state.Moviesdetail);
 
@@ -24,7 +23,7 @@ const MovieDetails = () => {
         const element = e.target;
         if (element.classList.contains('shadow')) {
             document.body.style.overflow = 'auto';
-            history.goBack();
+            history.push("/");
             dispatch({ type: "CLEAR_STATE" });
         }
     }
@@ -180,7 +179,10 @@ background: #262238;
 display: grid;
 grid-template-columns: 220px 1fr;
 grid-gap: 5rem;
-color: white
+color: white;
+@media (max-width: 1024px) {
+   display: block;
+}
 `
 const Poster = styled(motion.div)`
 img{
@@ -189,11 +191,30 @@ img{
     border-radius: 10%;
     object-fit: cover;
     }
+@media (max-width: 1024px) {
+  img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  }
+}
+@media (max-width: 650px) {
+  img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  }
+}
 `
 const Rating = styled(motion.div)`
  display: flex;
  justify-content: space-between;
  align-items: center;
+ @media (max-width: 650px) {
+    width: 100%;
+}
 
 `
 const Stars = styled(motion.div)`
@@ -202,6 +223,7 @@ const Stars = styled(motion.div)`
     width: 100%;
     object-fit: cover;
     }
+
 `
 
 const Titlestyled = styled(motion.div)`
@@ -219,6 +241,9 @@ const Detailsstyled = styled(motion.div)`
  p{
      padding: 0.5rem 0rem;
  }
+ @media (max-width: 650px) {
+    grid-gap: 0rem;
+}
 `
 const OverviewStyle = styled(motion.div)`
 color: white;
@@ -243,7 +268,7 @@ h3{
 const MovieStyled = styled(motion.div)`
   min-height: 80vh;
   display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
+  grid-template-columns: repeat(auto-fit,minmax(100px,1fr));
   grid-column-gap: 2rem;
   grid-row-gap: 4rem;
 `;

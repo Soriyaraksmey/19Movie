@@ -9,6 +9,11 @@ const SearchMovieReducer = (state = initstate, action) => {
                 ...state,
                 Search: action.payload.searchmovie,
             }
+        case "CLEAR_SEARCH":
+            return {
+                ...state,
+                Search: [],
+            }
         default:
             return {
                 ...state,

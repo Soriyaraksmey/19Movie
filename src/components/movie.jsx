@@ -42,12 +42,7 @@ const GameStyled = styled(motion.div)`
   background: #1c1b29;
   cursor: pointer;
   transition: transform .3s;
-  
-  &:hover{
-      transform: scale(1.1);
-      box-shadow: 0 0 30px rgba(0,0,0,0.5);
-  }
-  img{
+img{
     width: 100%;
     display: block;
     border-radius: 20px 20px 0 0;
@@ -59,6 +54,11 @@ h3{
     font-size: 0.9rem;
     text-decoration: none;
 }
+  &:hover{
+      transform: scale(2);
+      box-shadow: 0 0 30px rgba(0,0,0,0.5);
+  }
+ 
 
 `
 

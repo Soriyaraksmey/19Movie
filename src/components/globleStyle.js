@@ -15,7 +15,11 @@ html{
         background-color: lightblue;
     }
 }
-
+@media (max-width: 1024px) {
+  html{
+  font-size: 70%;
+  }
+}
 body{
     background: #151320;
     color: white;
@@ -25,8 +29,7 @@ font-family: 'Poppins', sans-serif;
 }
 h1{
     font-family: 'Metal Mania', cursive;
-    font-size: 3rem;
-    letter-spacing: 1rem;
+    font-size: 2.5rem;
     font-weight: bold;
 }
 h2{
