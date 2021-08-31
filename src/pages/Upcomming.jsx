@@ -9,7 +9,7 @@ const Upcomming = () => {
 
     return (
         <Styling>
-            <h3>Don't know what to do</h3>
+            <h3>This page will be available soon</h3>
         </Styling>
     );
 }
